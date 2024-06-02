@@ -1,4 +1,4 @@
-# 2024-06-02 00:30
+# 2024-06-02 10:49
 name: Fork & Edit
 
 on:
@@ -105,6 +105,10 @@ jobs:
         # SukkaW
         curl -L -o Tool-repo/Surge/Rules/Ads_SukkaW.list "https://ruleset.skk.moe/List/domainset/reject.conf"
         curl -L -o Tool-repo/Surge/Rules/Ads_SukkaW_NoIP.list "https://ruleset.skk.moe/List/non_ip/reject.conf"
+        # ConnersHua
+        curl -L -o Tool-repo/Surge/Rules/Ads_ConnersHua.list "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Reject/Advertising.list"
+        curl -L -o Tool-repo/Surge/Rules/Hijacking_ConnersHua.list "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Reject/Hijacking.list"
+        curl -L -o Tool-repo/Surge/Rules/Tracking_ConnersHua.list "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Reject/Tracking.list"
 
       # 适配 Surge 规则
     - name: Edit Surge/Rules
@@ -166,6 +170,9 @@ jobs:
           cat Tool-repo/Surge/Rules/Ads_RuCu6.list >> Tool-repo/Surge/Rules/Reject.list
           cat Tool-repo/Surge/Rules/Ads_limbopro.list >> Tool-repo/Surge/Rules/Reject.list
           cat Tool-repo/Surge/Rules/Ads_AWAvenue.list >> Tool-repo/Surge/Rules/Reject.list
+          cat Tool-repo/Surge/Rules/Ads_ConnersHua.list >> Tool-repo/Surge/Rules/Reject.list
+          cat Tool-repo/Surge/Rules/Hijacking_ConnersHua.list >> Tool-repo/Surge/Rules/Reject.list
+          cat Tool-repo/Surge/Rules/Tracking_ConnersHua.list >> Tool-repo/Surge/Rules/Reject.list
         else
           echo "$file not found."
         fi
@@ -266,13 +273,13 @@ jobs:
         curl -L -o Tool-repo/Clash/Rules/Ads_Dlerio.list "https://raw.githubusercontent.com/dler-io/Rules/main/Surge/Surge%203/Provider/Reject.list"
         curl -L -o Tool-repo/Clash/Rules/Anti-ad.list "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-clash.yaml"
         curl -L -o Tool-repo/Clash/Rules/AdGuardChinese.list "https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/chinese-filter.txt"
-        curl -L -o Tool-repo/Clash/Rules/Reject.list "https://raw.githubusercontent.com/Repcz/Tool/X/Surge/Rules/Reject.list"
         # Lan
         curl -L -o Tool-repo/Clash/Rules/Lan.list "https://raw.githubusercontent.com/Repcz/Tool/X/Surge/Rules/Lan.list"
  
       # 适配 Clash 规则
     - name: Edit Clash/Rules
       run: |
+        cp -r Tool-repo/Surge/Rules/Reject.list Tool-repo/Clash/Rules/Reject.list
         cd Tool-repo/Clash/Rules
         for file in *.list; do
           if [ "$file" != "ChinaIPv4.list" ] && [ "$file" != "ChinaIPv6.list" ] && [ "$file" != "Lan.list" ]; then
@@ -593,8 +600,6 @@ jobs:
         curl -L -o Tool-repo/Loon/Rules/Ads_RuCu6.list "https://raw.githubusercontent.com/RuCu6/QuanX/main/Rules/MyBlockAds.list"
         curl -L -o Tool-repo/Loon/Rules/AdGuardChinese.list "https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/chinese-filter.txt"
         curl -L -o Tool-repo/Loon/Rules/Ads_limbopro.list "https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Surge/rule/Adblock4limbo_surge.list"
-        # 自定义广告规则
-        curl -L -o Tool-repo/Loon/Rules/Reject.list "https://raw.githubusercontent.com/Repcz/Tool/X/Surge/Rules/Reject.list"
         # fmz200
         curl -L -o Tool-repo/Loon/Rules/Direct_fmz200.list "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/filter/fenliuxiuzheng.list"
         curl -L -o Tool-repo/Loon/Rules/Ads_fmz200.list "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/filter/fenliu.list"
@@ -605,6 +610,7 @@ jobs:
     - name: Edit Loon/Rules
       run: |
         cp -r Tool-repo/Surge/Rules/Ads_SukkaW.list Tool-repo/Loon/Rules/Ads_SukkaW.list
+        cp -r Tool-repo/Surge/Rules/Reject.list Tool-repo/Loon/Rules/Reject.list
         cd Tool-repo/Loon/Rules
         for file in *.list; do
           if [ "$file" != "Lan.list" ] ; then
@@ -749,8 +755,6 @@ jobs:
         curl -L -o Tool-repo/Shadowrocket/Rules/Ads_RuCu6.list "https://raw.githubusercontent.com/RuCu6/QuanX/main/Rules/MyBlockAds.list"
         curl -L -o Tool-repo/Shadowrocket/Rules/AdGuardChinese.list "https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/chinese-filter.txt"
         curl -L -o Tool-repo/Shadowrocket/Rules/Ads_limbopro.list "https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Surge/rule/Adblock4limbo_surge.list"
-        # 自定义广告规则
-        curl -L -o Tool-repo/Shadowrocket/Rules/Reject.list "https://raw.githubusercontent.com/Repcz/Tool/X/Surge/Rules/Reject.list"
         # fmz200
         curl -L -o Tool-repo/Shadowrocket/Rules/Direct_fmz200.list "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/filter/fenliuxiuzheng.list"
         curl -L -o Tool-repo/Shadowrocket/Rules/Ads_fmz200.list "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/filter/fenliu.list"
@@ -776,6 +780,7 @@ jobs:
       # 适配 Shadowrocket 规则
     - name: Edit Shadowrocket/Rules
       run: |
+        cp -r Tool-repo/Surge/Rules/Reject.list Tool-repo/Shadowrocket/Rules/Reject.list
         cd Tool-repo/Shadowrocket/Rules
         for file in *.list; do
           if [ "$file" != "Lan.list" ] ; then
@@ -884,8 +889,6 @@ jobs:
         curl -L -o Tool-repo/Stash/Rules/Ads_Dlerio.yaml "https://raw.githubusercontent.com/dler-io/Rules/main/Surge/Surge%203/Provider/Reject.list"
         curl -L -o Tool-repo/Stash/Rules/AdGuardChinese.yaml "https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/chinese-filter.txt"
         curl -L -o Tool-repo/Stash/Rules/Ads_RuCu6.yaml "https://raw.githubusercontent.com/RuCu6/QuanX/main/Rules/MyBlockAds.list"
-        # 自定义广告规则
-        curl -L -o Tool-repo/Stash/Rules/Reject.yaml "https://raw.githubusercontent.com/Repcz/Tool/X/Surge/Rules/Reject.list"
         # fmz200
         curl -L -o Tool-repo/Stash/Rules/Direct_fmz200.yaml "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/filter/fenliuxiuzheng.list"
         curl -L -o Tool-repo/Stash/Rules/Ads_fmz200.yaml "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/filter/fenliu.list"
@@ -963,8 +966,6 @@ jobs:
         curl -L -o Tool-repo/Stash/Rules/Ads_Dlerio.list "https://raw.githubusercontent.com/dler-io/Rules/main/Surge/Surge%203/Provider/Reject.list"
         curl -L -o Tool-repo/Stash/Rules/AdGuardChinese.list "https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/chinese-filter.txt"
         curl -L -o Tool-repo/Stash/Rules/Ads_RuCu6.list "https://raw.githubusercontent.com/RuCu6/QuanX/main/Rules/MyBlockAds.list"
-        # 自定义广告规则
-        curl -L -o Tool-repo/Stash/Rules/Reject.list "https://raw.githubusercontent.com/Repcz/Tool/X/Surge/Rules/Reject.list"
         # QQ音乐广告规则
         curl -L -o Tool-repo/Stash/Rules/Ads_QQMusic.list "https://raw.githubusercontent.com/Repcz/Tool/X/Surge/Rules/Ads_QQMusic.list"
         # fmz200
@@ -990,6 +991,7 @@ jobs:
       # 适配 Stash 规则 yaml
     - name: Edit Stash/Rules 
       run: |
+        cp -r Tool-repo/Surge/Rules/Reject.list Tool-repo/Stash/Rules/Reject.yaml
         cd Tool-repo/Stash/Rules
         for file in *.yaml *.list; do
           if [ "$file" != "Lan.yaml" ] && [ "$file" != "Lan.list" ]; then
@@ -1028,6 +1030,7 @@ jobs:
       # 
     - name: Edit Stash/Rules yaml
       run: |
+        cp -r Tool-repo/Surge/Rules/Reject.list Tool-repo/Stash/Rules/Reject.list
         cd Tool-repo/Stash/Rules
         for file in *.yaml; do
           if [ -f "$file" ]; then
@@ -1116,8 +1119,6 @@ jobs:
         curl -L -o Tool-repo/Egern/Rules/Anti-ad.yaml "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge.txt"
         curl -L -o Tool-repo/Egern/Rules/AdGuardChinese.yaml "https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/chinese-filter.txt"
         curl -L -o Tool-repo/Egern/Rules/Ads_RuCu6.yaml "https://raw.githubusercontent.com/RuCu6/QuanX/main/Rules/MyBlockAds.list"
-        # 自定义广告规则
-        curl -L -o Tool-repo/Egern/Rules/Reject.yaml "https://raw.githubusercontent.com/Repcz/Tool/X/Surge/Rules/Reject.list"
         # fmz200
         curl -L -o Tool-repo/Egern/Rules/Direct_fmz200.yaml "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/filter/fenliuxiuzheng.list"
         curl -L -o Tool-repo/Egern/Rules/Ads_fmz200.yaml "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/filter/fenliu.list"
@@ -1144,6 +1145,7 @@ jobs:
     - name: Edit Egern/Rules
       run: |
         cp -r Tool-repo/Surge/Rules/Ads_SukkaW.list Tool-repo/Egern/Rules/Ads_SukkaW.yaml
+        cp -r Tool-repo/Surge/Rules/Reject.list Tool-repo/Egern/Rules/Reject.yaml
         cd Tool-repo/Egern/Rules
         for file in *.yaml; do
           if [ -f "$file" ]; then
