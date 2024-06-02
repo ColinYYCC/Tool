@@ -1,4 +1,4 @@
-# 2024-06-02 19:28
+# 2024-06-02 19:33
 name: Fork & Edit
 
 on:
@@ -51,8 +51,8 @@ jobs:
         curl -L -o Tool-repo/Surge/Rules/Facebook.list "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Facebook.list"
         # Telegram
         curl -L -o Tool-repo/Surge/Rules/Telegram_US.list "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/TelegramUS/TelegramUS.list"
-        curl -L -o Tool-repo/Surge/Rules/Telegram_SG.list "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/TelegramUS/TelegramSG.list"
-        curl -L -o Tool-repo/Surge/Rules/Telegram_NL.list "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/TelegramUS/TelegramNL.list"
+        curl -L -o Tool-repo/Surge/Rules/Telegram_SG.list "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/TelegramSG/TelegramSG.list"
+        curl -L -o Tool-repo/Surge/Rules/Telegram_NL.list "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/TelegramNL/TelegramNL.list"
         # 谷歌
         curl -L -o Tool-repo/Surge/Rules/YouTube.list "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/YouTube.list"
         curl -L -o Tool-repo/Surge/Rules/Google.list "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Google.list"
