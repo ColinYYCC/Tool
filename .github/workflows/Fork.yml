@@ -1,4 +1,4 @@
-# 2024-06-02 10:49
+# 2024-06-02 10:56
 name: Fork & Edit
 
 on:
@@ -139,6 +139,7 @@ jobs:
                    -e '/# UPDATED:/d' \
                    -e '/# 数目: /d' \
                    -e '/# 规则: /d' \
+                   -e '/404 NOT/d' \
                    "$file"
             # 如果为IP规则且不包含no-resolve 则添加no-resolve
             awk '/^IP-/ && !/,no-resolve/ {print $0",no-resolve"; next} {print}' "$file" > tmpfile
@@ -308,6 +309,7 @@ jobs:
                    -e '/# AUTHOR:/d' \
                    -e '/# REPO:/d' \
                    -e '/# UPDATED:/d' \
+                   -e '/404 NOT/d' \
                    "$file"
             # 如果为IP规则且不包含no-resolve 则添加no-resolve
             awk '/^IP-/ && !/,no-resolve/ {print $0",no-resolve"; next} {print}' "$file" > tmpfile
@@ -505,6 +507,7 @@ jobs:
                    -e '/# AUTHOR:/d' \
                    -e '/# REPO:/d' \
                    -e '/# UPDATED:/d' \
+                   -e '/404 NOT/d' \
                    "$file"
           else
             echo "$file not found."
@@ -636,6 +639,7 @@ jobs:
                    -e '/# AUTHOR:/d' \
                    -e '/# REPO:/d' \
                    -e '/# UPDATED:/d' \
+                   -e '/404 NOT/d' \
                    "$file"
             # 如果为IP规则且不包含no-resolve 则添加no-resolve
             awk '/^IP-/ && !/,no-resolve/ {print $0",no-resolve"; next} {print}' "$file" > tmpfile
@@ -805,6 +809,7 @@ jobs:
                    -e '/# AUTHOR:/d' \
                    -e '/# REPO:/d' \
                    -e '/# UPDATED:/d' \
+                   -e '/404 NOT/d' \
                    "$file"
             # 如果为IP规则且不包含no-resolve 则添加no-resolve
             awk '/^IP-/ && !/,no-resolve/ {print $0",no-resolve"; next} {print}' "$file" > tmpfile
@@ -1018,6 +1023,7 @@ jobs:
                    -e '/# AUTHOR:/d' \
                    -e '/# REPO:/d' \
                    -e '/# UPDATED:/d' \
+                   -e '/404 NOT/d' \
                    "$file"
             # 如果为IP规则且不包含no-resolve 则添加no-resolve
             awk '/^IP-/ && !/,no-resolve/ {print $0",no-resolve"; next} {print}' "$file" > tmpfile
@@ -1173,6 +1179,7 @@ jobs:
                    -e '/# AUTHOR:/d' \
                    -e '/# REPO:/d' \
                    -e '/# UPDATED:/d' \
+                   -e '/404 NOT/d' \
                    "$file"
     
             cp "$file" tmpfile
