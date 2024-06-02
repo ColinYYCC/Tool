@@ -131,8 +131,6 @@ proxy-groups:
 
   - {name: 哔哩哔哩, type: select, proxies: [DIRECT, 香港节点, 台湾节点], icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili.png}
 
-  - {name: 国内网站, type: select, proxies: [DIRECT, 手动切换], icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China_Map.png}
-
   - {name: 广告拦截, type: select, proxies: [REJECT, DIRECT], icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png}
 
   - {name: 兜底分流, <<: *pg, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color//Final.png}
@@ -152,7 +150,7 @@ proxy-groups:
   - {name: 欧洲节点, <<: *auto, filter: "🇬🇧|🇫🇷|🇳🇱|🇮🇸|🇩🇪|🇺🇦|🇨🇭|🇪🇺", icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/European_Union.png}
 
 rules:
-  - GEOSITE,category-ads-all,AdBlock
+  - GEOSITE,category-ads-all,广告拦截
   - GEOSITE,openai,AI
   - GEOSITE,category-games,游戏平台
   - GEOSITE,netflix,国际媒体

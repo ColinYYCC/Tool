@@ -133,8 +133,6 @@ proxy-groups:
 
   - {name: 哔哩哔哩, type: select, proxies: [DIRECT, 香港节点, 台湾节点], icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili.png}
 
-  - {name: 国内网站, type: select, proxies: [DIRECT, 手动切换], icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China_Map.png}
-
   - {name: 广告拦截, type: select, proxies: [REJECT, DIRECT], icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png}
 
   - {name: 兜底分流, <<: *pg, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color//Final.png}
@@ -223,9 +221,9 @@ rules:
   - RULE-SET,Emby,Emby
   - RULE-SET,ProxyMedia,国际媒体
   - RULE-SET,ProxyGFW,国外网站
-  - RULE-SET,ChinaDomain,国内网站
+  - RULE-SET,ChinaDomain,DIRECT
   - RULE-SET,Lan,DIRECT
-  - GEOIP,CN,国内网站
+  - GEOIP,CN,DIRECT
   - MATCH,兜底分流
 
 script:
