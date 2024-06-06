@@ -1,4 +1,4 @@
-# 2024-06-04 18:45
+# 2024-06-06 18:32
 name: Fork & Edit
 
 on:
@@ -170,7 +170,6 @@ jobs:
         if [ -f "Tool-repo/Surge/Rules/Reject.list" ] ; then
           cat Tool-repo/Surge/Rules/Ads_RuCu6.list >> Tool-repo/Surge/Rules/Reject.list
           cat Tool-repo/Surge/Rules/Ads_limbopro.list >> Tool-repo/Surge/Rules/Reject.list
-          cat Tool-repo/Surge/Rules/Ads_AWAvenue.list >> Tool-repo/Surge/Rules/Reject.list
           cat Tool-repo/Surge/Rules/Ads_ConnersHua.list >> Tool-repo/Surge/Rules/Reject.list
           cat Tool-repo/Surge/Rules/Hijacking_ConnersHua.list >> Tool-repo/Surge/Rules/Reject.list
           cat Tool-repo/Surge/Rules/Tracking_ConnersHua.list >> Tool-repo/Surge/Rules/Reject.list
