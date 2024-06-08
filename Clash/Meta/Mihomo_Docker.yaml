@@ -45,6 +45,7 @@ proxy-groups:
   - {name: Proxy, type: fallback, include-all: true}
 
 rules:
+  - PROCESS-PATH,/opt/nezha/agent/nezha-agent,DIRECT
   - GEOSITE,openai,Proxy
   - GEOSITE,category-games,Proxy
   - GEOSITE,github,Proxy
