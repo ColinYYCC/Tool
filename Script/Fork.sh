@@ -1,4 +1,4 @@
-# 2024-06-10 21:05
+# 2024-06-10 21:15
 
 #!/bin/bash
 
@@ -77,8 +77,6 @@ cp -r Tool-repo/Surge/Rules/Customrules/Empty.list Tool-repo/Surge/Rules/Reject.
 # fmz200
 curl -L -o Tool-repo/Surge/Rules/Direct_fmz200.list "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/filter/fenliuxiuzheng.list"
 curl -L -o Tool-repo/Surge/Rules/Ads_fmz200.list "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/filter/fenliu.list"
-# AD-QQMusic
-curl -L -o Tool-repo/Surge/Rules/Ads_QQMusic.list "https://raw.githubusercontent.com/Repcz/Tool/X/QuantumultX/Rules/Ads_QQMusic.list"
 # SukkaW
 curl -L -o Tool-repo/Surge/Rules/Ads_SukkaW.list "https://ruleset.skk.moe/List/domainset/reject.conf"
 curl -L -o Tool-repo/Surge/Rules/Ads_SukkaW_NoIP.list "https://ruleset.skk.moe/List/non_ip/reject.conf"
