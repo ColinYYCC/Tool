@@ -4,13 +4,11 @@
 #
 # Stash Version ≥ 2.6.0 
 #
-# 最后更新时间: 2024-8-13 21:30
+# 最后更新时间: 2024-8-13 22:05
 #
 # ================
 
-# 规则模式：rule/global/direct/script
 mode: rule
-# 设置日志输出级别: silent/error/warning/info/debug
 log-level: info       
 
 dns:
@@ -26,6 +24,11 @@ subscribe-url:
 
 # > 远程服务器
 proxy-providers:
+  Subscribe:
+    interval: 86400
+    url: http://your-service-provider
+    benchmark-timeout: 5
+    benchmark-url: http://latency-test.skk.moe/endpoint
 
 proxy-groups:
 
