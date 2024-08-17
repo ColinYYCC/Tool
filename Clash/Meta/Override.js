@@ -1,8 +1,8 @@
 // 参考 Verge Rev 示例 Script 配置
 //
-// Clash Verg Rev Version ≥ 1.7.2
+// Clash Verge Rev (Version ≥ 17.2) & Mihomo-Party (Version ≥ 0.5.8)
 //
-// 最后更新时间: 2024-08-17 19:55
+// 最后更新时间: 2024-08-17 20:10
 
 // 规则集通用配置
 const ruleProviderCommon = {
@@ -28,20 +28,22 @@ function main(config) {
   }
 
   // 覆盖通用配置
-  config["mixed-port"] = "7893";
+  config["mixed-port"] = "7890";
   config["tcp-concurrent"] = true;
   config["allow-lan"] = true;
   config["ipv6"] = false;
-  config["mode"] = "rule";
   config["log-level"] = "info";
   config["find-process-mode"] = "strict";
   config["global-client-fingerprint"] = "chrome";
+  config["external-controller"] = "127.0.0.1:9090";
+  config["external-ui"] = "ui";
+  config["external-ui-url"] = "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip";
 
   // 覆盖 dns 配置
   config["dns"] = {
     "enable": true,
     "listen": "0.0.0.0:1053",
-    "ipv6": true,
+    "ipv6": false,
     "enhanced-mode": "fake-ip",
     "fake-ip-range": "198.18.0.1/16",
     "fake-ip-filter":["+.lan", "*", "+.local"],
